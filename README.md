@@ -5,7 +5,7 @@
 
 ## Overview
 
-**IntelliFence** is a real-time Public Safety and Monitoring System developed for **Smart India Hackathon**.
+**IntelliFence** is a real-time Public Safety and Monitoring System.
 The platform enables authorities to monitor public safety situations, manage emergencies, and respond quickly using live location tracking, geo-fencing, and centralized incident management.
 Unlike tourist-only solutions, IntelliFence is designed for **general public safety**, making it suitable for cities, campuses, public events, disaster zones, and high-risk environments where real-time awareness and rapid response are essential.
 The system focuses on practical deployment using scalable web technologies and rule-based safety mechanisms to ensure reliability and real-world usability.
