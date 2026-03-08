@@ -10,6 +10,19 @@ async function createZone(req,res){
 
     const {title,description,latitude,longitude,riskLevel} = req.body;
 
+    const existing = await Zone.findOne({
+      type:"incident",
+      latitude: { $gte: latitude-0.0005, $lte: latitude+0.0005 },
+      longitude:{ $gte: longitude-0.0005, $lte: longitude+0.0005 },
+      status:"pending"
+    });
+
+     if(existing){
+      return res.status(409).json({
+        message:"Incident already reported nearby"
+      });
+    }
+
     const zone = await Zone.create({
       createdBy:req.user.id,
       title,
@@ -101,7 +114,9 @@ async function verifyZone(req,res){
 
     const user = await User.findById(req.user.id);
 
+
     const trustScore = user.trustScore || 1;
+
 
     const voted = zone.confirmations.find(
       c=>c.user.toString()===req.user.id
